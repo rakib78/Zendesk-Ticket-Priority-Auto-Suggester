@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 15px;
+  margin: 0;
+}
+
+#priority-suggestion {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0066cc;
+}
