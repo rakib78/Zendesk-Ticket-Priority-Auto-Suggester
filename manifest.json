@@ -1,13 +1,19 @@
 {
   "name": "Ticket Priority Auto-Suggester",
-  "author": "Rakibul",
+  "author": {
+    "name": "Rakib",
+    "email": "your@email.com",
+    "url": "https://github.com/rakib78"
+  },
   "defaultLocale": "en",
   "private": true,
   "location": {
-    "support.ticket.sidebar": {
-      "url": "assets/main.html"
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/main.html"
+      }
     }
   },
-  "version": "1.0",
+  "version": "1.1.0",
   "frameworkVersion": "2.0"
 }
