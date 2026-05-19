@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priority Suggester</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@8/dist/index.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div id="app">
+
+    <div id="state-loading" class="state">
+      <div class="spinner"></div>
+      <p class="hint">Analysing ticket…</p>
+    </div>
+
+    <div id="state-result" class="state hidden">
+      <div class="section-label">Suggested priority</div>
+
+      <div id="priority-badge" class="priority-badge">–</div>
+
+      <div class="confidence-row">
+        <span class="hint">Confidence</span>
+        <div class="confidence-bar-wrap">
+          <div id="confidence-bar" class="confidence-bar"></div>
+        </div>
+        <span id="confidence-pct" class="hint">0%</span>
+      </div>
+
+      <div id="signals-list" class="signals-list"></div>
+
+      <div class="actions">
+        <button id="btn-apply" class="btn-primary">Apply priority</button>
+        <button id="btn-refresh" class="btn-ghost">Re-analyse</button>
+      </div>
+
+      <div id="applied-msg" class="applied-msg hidden">
+        ✓ Priority updated
+      </div>
+    </div>
+
+    <div id="state-empty" class="state hidden">
+      <p class="hint">No subject or description found on this ticket yet.</p>
+      <button id="btn-retry" class="btn-ghost">Try again</button>
+    </div>
+
+    <div id="state-error" class="state hidden">
+      <p class="hint error-text">Something went wrong. Please reload.</p>
+      <button id="btn-error-retry" class="btn-ghost">Retry</button>
+    </div>
+
+  </div>
+
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
