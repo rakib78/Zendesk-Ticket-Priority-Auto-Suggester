@@ -1,0 +1,7 @@
+{
+  "app": {
+    "name": "Ticket Priority Auto-Suggester",
+    "short_description": "Suggests ticket priority based on subject and description.",
+    "long_description": "Analyses ticket subject and description using weighted keyword rules to suggest Low, Normal, High, or Urgent priority. One-click apply. Updates automatically as ticket content changes."
+  }
+}
