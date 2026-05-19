@@ -1,0 +1,173 @@
+/* ─── Ticket Priority Auto-Suggester — main.css ─────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: #2f3941;
+  background: #fff;
+  padding: 12px;
+}
+
+/* ─── States ─────────────────────────────────────────────────────────────── */
+.state { width: 100%; }
+.hidden { display: none !important; }
+
+/* ─── Loading ────────────────────────────────────────────────────────────── */
+#state-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 0;
+}
+
+.spinner {
+  width: 24px; height: 24px;
+  border: 3px solid #e9ebed;
+  border-top-color: #1f73b7;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Section label ──────────────────────────────────────────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #68737d;
+  margin-bottom: 8px;
+}
+
+/* ─── Priority badge ─────────────────────────────────────────────────────── */
+.priority-badge {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  letter-spacing: .02em;
+}
+
+.badge-low     { background: #f3f4f5; color: #49545c; }
+.badge-normal  { background: #edf7ff; color: #1f73b7; }
+.badge-high    { background: #fff8ed; color: #ad5918; }
+.badge-urgent  { background: #fff0f1; color: #cc3340; }
+
+/* ─── Confidence bar ─────────────────────────────────────────────────────── */
+.confidence-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.confidence-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: #e9ebed;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width .4s ease;
+}
+
+.conf-0 { background: #68737d; }
+.conf-1 { background: #1f73b7; }
+.conf-2 { background: #ad5918; }
+.conf-3 { background: #cc3340; }
+
+/* ─── Signals ────────────────────────────────────────────────────────────── */
+.signals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.signal-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #49545c;
+}
+
+.signal-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #c2c8cc;
+}
+
+.priority-signal-0 .signal-dot { background: #68737d; }
+.priority-signal-1 .signal-dot { background: #1f73b7; }
+.priority-signal-2 .signal-dot { background: #ad5918; }
+.priority-signal-3 .signal-dot { background: #cc3340; }
+
+/* ─── Actions ────────────────────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #1f73b7;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-primary:hover:not(:disabled) { background: #1a5fa3; }
+.btn-primary:disabled { background: #adcce4; cursor: not-allowed; }
+
+.btn-ghost {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #1f73b7;
+  background: transparent;
+  border: 1px solid #d8dcde;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-ghost:hover { background: #f3f4f5; }
+
+/* ─── Applied message ────────────────────────────────────────────────────── */
+.applied-msg {
+  font-size: 12px;
+  color: #186b38;
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+/* ─── Misc ───────────────────────────────────────────────────────────────── */
+.hint {
+  font-size: 12px;
+  color: #68737d;
+  text-align: center;
+}
+
+.error-text { color: #cc3340; }
+
+#state-empty, #state-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
